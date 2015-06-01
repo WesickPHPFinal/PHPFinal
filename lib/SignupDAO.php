@@ -29,7 +29,6 @@ class SignupDAO {
     public function login($model) {
          
         $email = $model->getEmail();
-        $userName = $model->getUserName();
         $password = $model->getPassword();
         $db = $this->getDB();
 
@@ -49,7 +48,6 @@ class SignupDAO {
         $db = $this->getDB();
 
         $binds = array( ":email" => $model->getEmail(),
-                        ":userName" => $model->getUserName(),
                         ":password" => password_hash($model->getPassword(), PASSWORD_DEFAULT)
                     );
                      
@@ -67,7 +65,6 @@ class SignupDAO {
           
         $db = $this->getDB();
         $binds = array( ":id" => $model->getId(),
-                        ":userName" => $model->getUserName(),
                         ":email" => $model->getEmail(),
                         ":password" => password_hash($model->getPassword(), PASSWORD_DEFAULT),
                         ":active" => $model->getActive()

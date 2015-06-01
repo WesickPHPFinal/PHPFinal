@@ -1,3 +1,4 @@
+<?php include './bootstrap.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,13 +20,27 @@
 </head>
      
 <body>
-  <?php
-	if($_SESSION['username']) echo $username;
-	else echo "Username not set";
-?> 
+    
+    
+     <?php
+         $util = new Util();
+            
+            if ( $util->isPostRequest() ) {
+                $db = new DB($dbConfig); 
+                $model = new SignupModel();
+                $signupDao = new SignupDAO($db->getDB(), $model);            
 
-  
-        
+                $model->map(filter_input_array(INPUT_POST));
+                                
+                if ( $signupDao->login($model) ) {
+                    echo '<h2>Login Sucess</h2>';
+                    $util->setLoggedin(true);
+                    $util->redirect('is-logged-in.php');
+                } else {
+                    echo '<h2>Login Failed</h2>';
+                }
+            }
+        ?>    
         
 <!--  Navigation div -->
 <section id="Navigation">        
@@ -47,14 +62,14 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Game Manager<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                    <li><a href="gamemanager.html">My Games</a></li>
-                    <li><a href="gameAdd.html">Add a game</a></li>  
+                    <li><a href="#">My Games</a></li>
+                    <li><a href="#">Add a game</a></li>  
                     </ul>
                 </li>
                 <!--  End of Tournament Dropdown Menu  -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="signUpButton"><a href="signUp.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li class="signUpButton"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 <li class="logInButton"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
@@ -62,18 +77,23 @@
     </nav>
 </section>    
 <!-- End of Navigation div  -->
-    
-    <section id="Main Content">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-4 col-md-5 col-md-offset-3 col-sm-4 col-sm-offset-1  col-xs-4 col-xs-offset-1">
-                <p>Use our password manager to store all your gaming passwords in one secure place</p>
+        <section id="SignUp Div">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-lg-offset-4 col-md-5 col-md-offset-3 col-sm-4 col-sm-offset-1  col-xs-4 col-xs-offset-1">        
+                        <h1>Login</h1>
+        <form action="#" method="POST">
+            
+            Email : <input type="email" name="email" value="" /> <br />
+            Password : <input type="password" name="password" value="" /> <br /> 
+            <br />
+            <input type="submit" value="Login" />
+            
+        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-        
-        
+        </section>
     
    
         

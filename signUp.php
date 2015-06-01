@@ -83,13 +83,14 @@
                 <div class="row">
                     <div class="col-lg-5 col-lg-offset-4 col-md-5 col-md-offset-3 col-sm-4 col-sm-offset-1  col-xs-4 col-xs-offset-1">        
                         <h1>Signup</h1>
-                        <form action="#" method="POST">
-                        Email : <input type="email" name="email" value="" /> <br />
-                        User Name: <input type="text" name="userName" value="">    
-                        Password : <input type="password" name="password" value="" /> <br /> 
-                        <br />
-                        <input type="submit" value="Signup" />
-                        </form>
+        <form action="#" method="POST">
+            
+            Email : <input type="email" name="email" value="" /> <br />
+            Password : <input type="password" name="password" value="" /> <br /> 
+            <br />
+            <input type="submit" value="Signup" />
+            
+        </form>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,6 @@
 class SignupModel {
     
     private $id;
-    private $userName;
     private $email;
     private $password;
     private $created;
@@ -16,9 +15,7 @@ class SignupModel {
     function getEmail() {
         return $this->email;
     }
-    function getUserName() {
-        return $this->userName;
-    }
+
     function getPassword() {
         return $this->password;
     }
@@ -37,10 +34,6 @@ class SignupModel {
 
     function setEmail($email) {
         $this->email = $email;
-    }
-    
-    function setUserName($userName) {
-        $this->userName = $userName;
     }
 
     function setPassword($password) {
