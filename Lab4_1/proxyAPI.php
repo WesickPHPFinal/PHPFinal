@@ -14,7 +14,7 @@ $method = $consumeAPI->getHTTPVerb();
 $data = $consumeAPI->getHTTPData();
 
 // make sure the url is correct.  Your folder name might not be called PHPadvClassSpring2015
-$url = $consumeAPI->endpoint('http://localhost:8080/PHPadvancedClassSpring2015_1/Lab5/api/v1');
+$url = $consumeAPI->endpoint('http://localhost:8080/PHPadvancedClassSpring2015/Lab4/api/v1');
 
 $consumeAPI->callAPI($method, $url, $data, $auth);
 
