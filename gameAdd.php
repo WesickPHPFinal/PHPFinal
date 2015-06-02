@@ -20,7 +20,26 @@
      
 <body>
     
-    <!--  End of Page Load Scripts --> 
+    <?php
+        
+            $util = new Util();
+            
+            if ( $util->isPostRequest() ) {
+                $db = new DB($dbConfig); 
+                $model = new SignupModel();
+                $signupDao = new SignupDAO($db->getDB(), $model);            
+
+                $model->map(filter_input_array(INPUT_POST));
+                                
+                if ( $signupDao->create($model) ) {
+                    echo '<h2>Signup complete</h2>';
+                } else {
+                    echo '<h2>Signup Failed</h2>';
+                }
+            }
+           
+            
+        ?> 
         
         
 <!--  Navigation div -->
@@ -66,7 +85,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                    <form>
+                    <form action="#" method="POST">
                         Game Name: <input type="text" name="gameName"><br>
                         In Game Name: <input type="text" name="inGameName"><br>
                         Login Name: <input type="text" name="logInName"><br>
