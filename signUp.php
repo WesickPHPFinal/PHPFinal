@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
 	<!--Page Title-->
-    <title>Warp Nine Game Names</title>
+    <title> Game Names</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- CDN's for Bootstrap, Font Awesome Includes CSS and JS scripts -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
@@ -53,7 +53,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
             </button>
-            <a class="navbar-brand" href="#">Warp Nine Game Names</a>
+            <a class="navbar-brand" href="#">Game Name Manager</a>
         </div>
         
         <div class="collapse navbar-collapse" id="myNavbar">
@@ -70,8 +70,8 @@
                 <!--  End of Tournament Dropdown Menu  -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="signUpButton"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li class="logInButton"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li class="signUpButton"><a href="signUp.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li class="logInButton"><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
         </div>
@@ -84,7 +84,7 @@
                     <div class="col-lg-5 col-lg-offset-4 col-md-5 col-md-offset-3 col-sm-4 col-sm-offset-1  col-xs-4 col-xs-offset-1">        
                         <h1>Signup</h1>
         <form action="#" method="POST">
-            
+            User Name: <input type="text" name="userName" value="" /> <br />
             Email : <input type="email" name="email" value="" /> <br />
             Password : <input type="password" name="password" value="" /> <br /> 
             <br />
