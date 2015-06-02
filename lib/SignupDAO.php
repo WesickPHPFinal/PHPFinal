@@ -28,13 +28,13 @@ class SignupDAO {
     
     public function login($model) {
          
-        $email = $model->getEmail();
+        $username = $model->getUserName();
         $password = $model->getPassword();
         $db = $this->getDB();
 
-        $stmt = $db->prepare("SELECT * FROM signup WHERE email = :email");
+        $stmt = $db->prepare("SELECT * FROM user WHERE email = :email");
 
-        if ( $stmt->execute(array(':email' => $email)) && $stmt->rowCount() > 0 ) {            
+        if ( $stmt->execute(array(':userName' => $username)) && $stmt->rowCount() > 0 ) {            
             $results = $stmt->fetch(PDO::FETCH_ASSOC);            
             return password_verify($password, $results['password']);            
         }
@@ -47,11 +47,12 @@ class SignupDAO {
                  
         $db = $this->getDB();
 
-        $binds = array( ":email" => $model->getEmail(),
+        $binds = array( ":userName" => $model->getUserName(),
+                        ":email" => $model->getEmail(),
                         ":password" => password_hash($model->getPassword(), PASSWORD_DEFAULT)
                     );
                      
-        $stmt = $db->prepare("INSERT INTO signup SET email = :email, password = :password, created = now()");
+        $stmt = $db->prepare("INSERT INTO user SET  email = :email, password = :password, created = now()");
          
         if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {
             return true;
