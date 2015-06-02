@@ -1,0 +1,28 @@
+body{
+background-image: url(../images/ladiesofsmite.png);
+background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+/*Don't think this is working right now*/
+.footer{
+height: 15px;
+}
+
+/*Sign up div styling needs to be adjusted and screen size fixes*/
+.signUp{
+    background-image: url(/images/loginSignupbkgrd.png);
+    background-repeat: no-repeat;
+
+}
+
+/*Aint shit here gotta do it*/
+.logIn{
+     background-image: url(/images/loginSignupbkgrd.png);
+     background-repeat: no-repeat;
+
+}
+
+.input{
+text-align-last: right;
+}
